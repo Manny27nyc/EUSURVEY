@@ -1,4 +1,4 @@
-FROM tomcat:8.5.41-jdk8
+FROM tomcat:8.5.70-jdk8
 
 # arguments
 # ./conf/eulogin.crt is a trusted certificate for SSO integration
