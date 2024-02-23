@@ -10,7 +10,7 @@
 	<version>1.5.2.5</version>
 	<properties>
 		<java-version>1.8</java-version>
-		<org.springframework-version>4.3.20.RELEASE</org.springframework-version>
+		<org.springframework-version>5.3.32</org.springframework-version>
 		<org.aspectj-version>1.8.8</org.aspectj-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 		<version.number>444</version.number>
@@ -308,7 +308,7 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>5.8.10</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -694,12 +694,10 @@
 						<configuration>
 							<target description="update the properties xml file">
 								<tstamp>
-									<format property="touch.time" pattern="dd/MM/yyyy HH:mm" />
+									<format property="touch.time" pattern="dd/MM/yyyy HH:mm"/>
 								</tstamp>
-								<property name="version.footer.build"
-									value="v${project.version} ${buildNumber} (${touch.time})" />
-								<scriptdef name="updatescmbranch"
-									language="javascript">
+								<property name="version.footer.build" value="v${project.version} ${buildNumber} (${touch.time})"/>
+								<scriptdef name="updatescmbranch" language="javascript">
 									<![CDATA[
                                         var scm = project.getProperty("version.footer.build");
                                         var branchPresent= scm.indexOf("branches"); if(branchPresent==0)
@@ -709,12 +707,10 @@
                                         }
                                     ]]>
 								</scriptdef>
-								<updatescmbranch />
+								<updatescmbranch/>
 								<echo>Version footer value = ${version.footer.build}</echo>
-								<property name="verfilename"
-									value="${basedir}/src/main/webapp/WEB-INF/views/versionfooter.txt" />
-								<echo output="${verfilename}"
-									message="${version.footer.build}" />
+								<property name="verfilename" value="${basedir}/src/main/webapp/WEB-INF/views/versionfooter.txt"/>
+								<echo output="${verfilename}" message="${version.footer.build}"/>
 							</target>
 						</configuration>
 						<goals>
@@ -727,15 +723,11 @@
 						<id>preparePackageAntCreateRevisionVersionPropertiesForALl</id>
 						<phase>prepare-package</phase>
 						<configuration>
-							<target
-								description="create version.txt for javascript refresh">
-								<property name="version.jscript.build"
-									value="${buildNumber}" />
+							<target description="create version.txt for javascript refresh">
+								<property name="version.jscript.build" value="${buildNumber}"/>
 								<echo>Version in text file = ${version.jscript.build}</echo>
-								<property name="jscriptname"
-									value="${basedir}/src/main/webapp/WEB-INF/views/version.txt" />
-								<echo output="${jscriptname}"
-									message="${version.jscript.build}" />
+								<property name="jscriptname" value="${basedir}/src/main/webapp/WEB-INF/views/version.txt"/>
+								<echo output="${jscriptname}" message="${version.jscript.build}"/>
 							</target>
 						</configuration>
 						<goals>
@@ -870,7 +862,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
